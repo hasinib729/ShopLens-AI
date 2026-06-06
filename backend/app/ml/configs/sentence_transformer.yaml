@@ -1,0 +1,9 @@
+# Sentence Transformer Fine-Tuning Hyperparameters
+model_name: "all-mpnet-base-v2"
+learning_rate: 0.00002
+batch_size: 16
+epochs: 3
+weight_decay: 0.01
+warmup_steps: 100
+seed: 42
+save_path: "storage/models/sentence_transformer_finetuned"

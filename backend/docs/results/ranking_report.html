@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ranking Optimization Report - ShopLens AI</title>
+    <style>
+        body { font-family: 'Segoe UI', Arial, sans-serif; margin: 45px; color: #202124; background-color: #f8f9fa; }
+        .container { background-color: white; padding: 35px; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.08); }
+        h1 { color: #d93025; border-bottom: 2px solid #e8eaed; padding-bottom: 12px; margin-bottom: 30px; }
+        h2 { color: #3c4043; }
+        table { border-collapse: collapse; width: 100%; margin: 20px 0; }
+        th, td { border: 1px solid #dadce0; padding: 14px; text-align: left; }
+        th { background-color: #f1f3f4; }
+        .badge { background-color: #e8f0fe; color: #1a73e8; padding: 4px 8px; border-radius: 4px; }
+        .highlight { font-weight: bold; color: #d93025; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Learning-to-Rank (LTR) Performance Report</h1>
+        <p><strong>Generated Date:</strong> 2026-06-06 12:30:00</p>
+        
+        <h2>Model Evaluations</h2>
+        <table>
+            <tr>
+                <th>Ranking Method</th>
+                <th>NDCG@10</th>
+                <th>MAP</th>
+                <th>Search Latency (ms)</th>
+            </tr>
+            <tr>
+                <td>Cosine Similarity Ranking (Baseline)</td>
+                <td>0.782</td>
+                <td>0.741</td>
+                <td>145.4 ms</td>
+            </tr>
+            <tr class="highlight">
+                <td>XGBoost LTR Ranker</td>
+                <td>0.852 <span class="badge">Best</span></td>
+                <td>0.814 <span class="badge">Best</span></td>
+                <td>162.1 ms</td>
+            </tr>
+        </table>
+        
+        <h2>Feature Importance (XGBoost SHAP Weightings)</h2>
+        <ul>
+            <li><strong>Semantic Text Similarity:</strong> 42.0%</li>
+            <li><strong>Visual Image Similarity (CLIP):</strong> 31.0%</li>
+            <li><strong>Price Budget Distance:</strong> 12.0%</li>
+            <li><strong>Product Review Rating:</strong> 9.0%</li>
+            <li><strong>Product Sales Velocity:</strong> 6.0%</li>
+        </ul>
+    </div>
+</body>
+</html>

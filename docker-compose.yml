@@ -1,0 +1,71 @@
+version: '3.8'
+
+services:
+  # FastAPI Backend Service
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    environment:
+      - DATABASE_URL=postgresql://postgres:postgres@db:5432/shoplens
+      - REDIS_HOST=cache
+      - REDIS_PORT=6379
+      - KAFKA_BOOTSTRAP_SERVERS=kafka:9092
+      - MLFLOW_TRACKING_URI=http://mlflow:5000
+      - ACTIVE_MODE=production
+    volumes:
+      - ./backend/storage:/app/storage
+    depends_on:
+      - db
+      - cache
+      - mlflow
+
+  # React Frontend client
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - "5173:5173"
+    depends_on:
+      - backend
+
+  # PostgreSQL DB
+  db:
+    image: postgres:15-alpine
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=shoplens
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  # Redis Cache & online Feature store
+  cache:
+    image: redis:7-alpine
+    ports:
+      - "6379:6379"
+
+  # MLflow Tracking Registry
+  mlflow:
+    image: ghcr.io/mlflow/mlflow:v2.11.1
+    ports:
+      - "5000:5000"
+    command: mlflow server --host 0.0.0.0 --port 5000 --backend-store-uri sqlite:///mlflow.db --default-artifact-root /app/storage/mlflow_artifacts
+    volumes:
+      - ./backend/storage:/app/storage
+
+  # Prometheus System Monitoring
+  prometheus:
+    image: prom/prometheus:latest
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml
+
+volumes:
+  postgres_data:

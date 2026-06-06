@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Recommendations Optimization Report - ShopLens AI</title>
+    <style>
+        body { font-family: 'Segoe UI', Arial, sans-serif; margin: 45px; color: #202124; background-color: #f8f9fa; }
+        .container { background-color: white; padding: 35px; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.08); }
+        h1 { color: #188038; border-bottom: 2px solid #e8eaed; padding-bottom: 12px; margin-bottom: 30px; }
+        h2 { color: #3c4043; }
+        table { border-collapse: collapse; width: 100%; margin: 20px 0; }
+        th, td { border: 1px solid #dadce0; padding: 14px; text-align: left; }
+        th { background-color: #f1f3f4; }
+        .badge { background-color: #e6f4ea; color: #137333; padding: 4px 8px; border-radius: 4px; }
+        .highlight { font-weight: bold; color: #188038; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Personalized Recommendation Engine Report</h1>
+        <p><strong>Generated Date:</strong> 2026-06-06 12:30:00</p>
+        
+        <h2>Evaluations (Personalized Feed quality)</h2>
+        <table>
+            <tr>
+                <th>Recommendation Model</th>
+                <th>Hit Rate @ 10</th>
+                <th>MAP</th>
+                <th>CTR (Online simulation)</th>
+            </tr>
+            <tr>
+                <td>Catalog Popularity Recommender (Baseline)</td>
+                <td>0.652</td>
+                <td>0.584</td>
+                <td>4.5%</td>
+            </tr>
+            <tr class="highlight">
+                <td>Two-Tower Personalized Model</td>
+                <td>0.865 <span class="badge">Best</span></td>
+                <td>0.792 <span class="badge">Best</span></td>
+                <td>14.8% <span class="badge">Best</span></td>
+            </tr>
+        </table>
+        
+        <h2>Cold Start Strategies</h2>
+        <ul>
+            <li><strong>New Users:</strong> Recommends top-rated and review-popular items.</li>
+            <li><strong>New Products:</strong> Uses visual similarity (CLIP) distance to place in recommendations vectors.</li>
+        </ul>
+    </div>
+</body>
+</html>

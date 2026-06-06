@@ -1,0 +1,9 @@
+# Two-Tower Recommendation Model Hyperparameters
+user_embedding_dim: 128
+product_embedding_dim: 128
+learning_rate: 0.001
+batch_size: 64
+epochs: 10
+weight_decay: 0.0001
+seed: 42
+save_path: "storage/models/two_tower.pt"

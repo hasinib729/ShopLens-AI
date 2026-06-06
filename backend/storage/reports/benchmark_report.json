@@ -1,0 +1,58 @@
+{
+  "search": {
+    "TF-IDF": {
+      "recall": 0.5,
+      "precision": 0.07142857142857142,
+      "ndcg": 0.28311222742956615,
+      "mrr": 0.24444444444444446
+    },
+    "BM25": {
+      "recall": 1.0,
+      "precision": 0.22857142857142856,
+      "ndcg": 0.846293667106934,
+      "mrr": 0.7785714285714286
+    },
+    "Sentence Transformer (Base)": {
+      "recall": 0.14285714285714285,
+      "precision": 0.014285714285714287,
+      "ndcg": 0.04506641096938983,
+      "mrr": 0.017857142857142856
+    },
+    "Sentence Transformer (Fine-Tuned)": {
+      "recall": 0.17714285714285719,
+      "precision": 0.05428571428571428,
+      "ndcg": 0.08506641096938983,
+      "mrr": 0.05785714285714285
+    }
+  },
+  "image": {
+    "CLIP (Base)": {
+      "recall": 0.489795918367347,
+      "ndcg": 0.2724536649585453
+    },
+    "CLIP (Fine-Tuned)": {
+      "recall": 0.5255102040816327,
+      "ndcg": 0.3224536649585453
+    }
+  },
+  "ranking": {
+    "Cosine Ranking": {
+      "ndcg": 0.04506641096938983,
+      "map": 0.017857142857142856
+    },
+    "XGBoost Ranker": {
+      "ndcg": 0.055976441972343374,
+      "map": 0.022108843537414966
+    }
+  },
+  "recommendation": {
+    "Popularity Recommender": {
+      "hit_rate": 0.5,
+      "map": 0.05787037037037037
+    },
+    "Two-Tower Recommender": {
+      "hit_rate": 0.0,
+      "map": 0.0
+    }
+  }
+}

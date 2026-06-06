@@ -1,0 +1,6 @@
+{
+  "search_model": "sentence_transformers_v1",
+  "clip_model": "clip_v1",
+  "ranker": "xgboost_ltr_v1",
+  "recommender": "two_tower_v1"
+}
